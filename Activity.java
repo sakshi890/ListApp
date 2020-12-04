@@ -1,4 +1,4 @@
-﻿﻿﻿import android.os.Bundle;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 android.support.v7.app.AppCompatActivity;
@@ -8,11 +8,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
  
 import java.util.ArrayList;
  
 public class FabExampleActivity extends AppCompatActivity {
  
+  
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapter;
     private ListView myListView;
@@ -39,9 +43,20 @@ public class FabExampleActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", 
                      Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+             private void addListItem() {
+ 
+        
+    }
             }
         });
     }
-.
-.
+View.OnClickListener undoOnClickListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        listItems.remove(listItems.size() -1);
+        adapter.notifyDataSetChanged();
+        Snackbar.make(view, "Item removed", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
+};
 }
